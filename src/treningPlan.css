@@ -1,0 +1,83 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+.header {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 24px;
+}
+.day-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+}
+.day-card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: #eaeaea;
+    cursor: pointer;
+}
+.day-title {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #222;
+}
+.toggle-icon {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.day-content {
+    padding: 16px;
+    border-top: 1px solid #ddd;
+}
+.card {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 12px;
+    background-color: #fafafa;
+}
+.exercise-name {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+.description {
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+.list {
+    margin-bottom: 10px;
+    padding-left: 0;
+    list-style-position: inside;
+}
+.set-list {
+    margin-left: 16px;
+}
+.confirm-button {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.confirm-button:hover {
+    background-color: #218838;
+}
