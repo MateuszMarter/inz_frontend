@@ -34,7 +34,7 @@ const TreningPlanPage = () => {
         };
 
         fetchTrainingPlan();
-    }, [aproxTime, days, loading]);
+    }, [aproxTime, days]);
 
     const toggleDay = (index) => {
         setExpandedDays(prev => {
