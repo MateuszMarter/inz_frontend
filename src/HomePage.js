@@ -13,7 +13,6 @@ const HomePage = () => {
 
     return (
         <div className="container">
-            <h1>Welcome to the Training App</h1>
 
             <div className="input-group">
                 <label htmlFor="time">Training Time (minutes):</label>
