@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {useLocation, useNavigate} from 'react-router-dom';
 import './treningPlan.css';
 
 const TreningPlanPage = () => {
@@ -7,11 +8,19 @@ const TreningPlanPage = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const navigate = useNavigate();
+
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const aproxTime = queryParams.get('time') || 90;
+    const days = queryParams.get('days') || 4;
+
+
     useEffect(() => {
         const fetchTrainingPlan = async () => {
             try {
                 const response = await fetch(
-                    'https://training-api-bjb0hgfkdagffyez.polandcentral-01.azurewebsites.net/user/GenTraining?aproxTime=90&days=3'
+                    `https://training-api-bjb0hgfkdagffyez.polandcentral-01.azurewebsites.net/user/GenTraining?aproxTime=${aproxTime}&days=${days}`
                 );
                 if (!response.ok) throw new Error('Failed to fetch training plan');
                 const data = await response.json();
@@ -67,6 +76,10 @@ const TreningPlanPage = () => {
         <div className="container">
             <h1 className="header">Trening Plan</h1>
 
+            <button onClick={() => navigate('/')} className="back-button">
+                ← Back to Home
+            </button>
+
             {treningPlan.map((day, dayIndex) => (
                 <div
                     key={dayIndex}
@@ -87,13 +100,14 @@ const TreningPlanPage = () => {
                                             {exercise.description && (
                                                 <div
                                                     className="description"
-                                                    dangerouslySetInnerHTML={{ __html: exercise.description }}
+                                                    dangerouslySetInnerHTML={{__html: exercise.description}}
                                                 />
                                             )}
                                             <ul className="list">
                                                 <li><strong>Muscles:</strong> {exercise.muscles.join(', ')}</li>
                                                 {exercise.secondary_muscles.length > 0 && (
-                                                    <li><strong>Secondary Muscles:</strong> {exercise.secondary_muscles.join(', ')}</li>
+                                                    <li><strong>Secondary
+                                                        Muscles:</strong> {exercise.secondary_muscles.join(', ')}</li>
                                                 )}
                                             </ul>
                                             <div className="list">
